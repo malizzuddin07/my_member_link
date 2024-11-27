@@ -18,7 +18,7 @@ if ($result->num_rows > 0) {
     $response = array('status' => 'failed', 'data' => null);
     sendJsonResponse($response);
 }
-	
+
 	
 
 function sendJsonResponse($sentArray)

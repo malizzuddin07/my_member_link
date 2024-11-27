@@ -164,7 +164,7 @@ class _LoginScreenState extends State<LoginScreen> {
       final response = await http.post(
         Uri.parse("${MyConfig.servername}/memberlink/api/login_users.php"),
         body: {"email": email, "password": password},
-      ).timeout(Duration(seconds: 10));
+      ).timeout(const Duration(seconds: 10));
       if (response.statusCode == 200) {
         var data = jsonDecode(response.body);
         if (data['status'] == "success") {
@@ -172,8 +172,8 @@ class _LoginScreenState extends State<LoginScreen> {
             content: Text("Login Success"),
             backgroundColor: Colors.green,
           ));
-          Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (content) => MainScreen()));
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (content) => const MainScreen()));
         } else {
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
             content: Text("Login Failed"),
